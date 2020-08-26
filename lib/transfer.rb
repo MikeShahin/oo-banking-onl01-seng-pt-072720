@@ -13,4 +13,13 @@ class Transfer
   def valid?
     sender.valid? && receiver.valid?
   end
+  
+  def execute_transaction
+    if valid? 
+      sender.balance -= amount
+      receiver.balance += amount
+    else
+      "rejected"
+    end
+  end
 end
