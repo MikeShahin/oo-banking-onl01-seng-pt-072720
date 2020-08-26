@@ -29,6 +29,7 @@ class Transfer
     if self.status == "complete" && valid?
       receiver.balance -= amount
       sender.balance += amount
+      self.status = "reversed"
     else
       self.status = "rejected"
       "Transaction rejected. Please check your account balance."
